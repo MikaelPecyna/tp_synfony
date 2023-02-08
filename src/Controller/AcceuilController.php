@@ -12,7 +12,7 @@ class AcceuilController extends AbstractController
     #[Route('/', name: 'app_acceuil')]
     public function index(): Response
     {
-        return new Response('<test>');
+        return $this->render('acceuil.html.twig');
 
     }
 }
