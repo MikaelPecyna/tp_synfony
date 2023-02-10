@@ -21,7 +21,7 @@ class OverviewController extends AbstractController
     }
 
     #[Route('/sandbox/overview/hello3', name: 'sandbox_overview_hello3')]
-public function hello3(): Response
+public function hello3Action(): Response
     {
         $args = array(
             'prenom' => 'Mikael',
@@ -32,7 +32,7 @@ public function hello3(): Response
     }
 
     #[Route('/sandbox/overview/hello4', name: 'sandbox_overview_hello4')]
-    public function hello4(): Response
+    public function hello4Action(): Response
     {
         $args = array(
             'prenom' => 'Mikael',

@@ -22,7 +22,7 @@ class PrefixController extends AbstractController
     }
 
     #[Route('/hello3', name: '_hello3')]
-public function hello3(): Response
+public function hello3Action(): Response
     {
         $args = array(
             'prenom' => 'Mikael',
@@ -33,7 +33,7 @@ public function hello3(): Response
     }
 
     #[Route('/hello4', name: '_hello4')]
-    public function hello4(): Response
+    public function hello4Action(): Response
     {
         $args = array(
             'prenom' => 'Mikael',
