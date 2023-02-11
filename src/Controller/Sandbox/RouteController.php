@@ -15,10 +15,22 @@ class RouteController extends AbstractController
 
     #[Route(
         '/with-variable/{age}',
-     name: '_with_variable')]
+     name: '_with_variable',
+     )]
     public function withVariableAction(int $age): Response
     {
         return new Response('<body>Age: ' . $age . '</body>');
+    }
+
+    #[Route(
+        '/with-default/{age}',
+     name: '_with_default', 
+     defaults: ['age' => 18],
+     )]
+    public function withDefaultAction(int $age): Response
+    {
+        dump($age);
+        return new Response("<body>Route::withDefault : age = " . $age . "(" . gettype($age) . ")</body>");
     }
 
 }
