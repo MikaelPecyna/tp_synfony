@@ -1,0 +1,28 @@
+<style> 
+table, th, td {
+  border: 1px solid;
+}
+</style>
+
+<body>
+    <p> Messages flash de type "info"</p>
+        <ul>
+            {% for msg in app.session.flashBag.get('info') %}
+            <li>{{ msg }}</li>
+            {% endfor %}
+        </ul>
+
+    <p> Numéro de page : {{ page }} </p>
+
+    <p> produit disponible : </p> 
+
+    <table>
+        {% for product in produits %}
+            <tr>
+                <td> {{ product.denomination }} </td>
+                <td> {{ product.code }} </td> 
+            </tr>
+        {% endfor %}
+
+    </table> 
+</body>

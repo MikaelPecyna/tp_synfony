@@ -1,0 +1,12 @@
+<body> 
+    <p>Messages flash de type "info"<p>
+        <ul>
+            {% for msg in app.session.flashBag.get('info') %}
+            <li>{{ msg }}</li>
+            {% endfor %}
+        </ul>
+
+    
+
+
+</body> 
