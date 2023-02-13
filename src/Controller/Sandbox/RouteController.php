@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 #[Route('/sandbox/route', name: 'sandbox_route')]
@@ -107,4 +108,26 @@ class RouteController extends AbstractController
 
         // Flemme test4 et test4bis, je l'ai est déjà testé sans le savoir 
 
+        #[Route(
+            "/permis/{age}",
+            name: '_permis',
+            requirements : ['age' => '\d+'],
+        )]
+        public function permisAction($age): Response
+        {
+            if($age<18)
+                throw new NotFoundHttpException('Il faut être majeur pour acceder à cette partie !');
+            
+            return new Response('<body> Route::permis : age = ' . $age . '</body>');
+        }
+
+        #[Route(
+            '/redirect1',
+            name: '_redirect',
+        )]
+        public function redirectAction(): Response
+        {
+            return $this->redirectToRoute('sandbox_prefix_hello4');
+        }
+        
 }
