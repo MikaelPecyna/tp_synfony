@@ -145,5 +145,17 @@ class RouteController extends AbstractController
             );
             return $this->redirectToRoute('sandbox_route_test3', $args);
         }
+
+        #[Route(
+            '/redirect3',
+            name: '_redirect3',
+        )]
+        public function redirect3Action(): Response
+        {
+            dump("Hello world");
+            return $this->redirectToRoute('sandbox_prefix_hello4');
+        }
+
+        
         
 }
