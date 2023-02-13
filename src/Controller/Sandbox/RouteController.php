@@ -61,16 +61,7 @@ class RouteController extends AbstractController
 
             return $this->render('Sandbox/Route/test1.html.twig', $args);
         }
-        #[Route(
-            '/test2/{year}/{month}/{filename}.{ext}',
-            name: '_test2', 
-            requirements: [
-                'year' => '[1-9]\d{0,3}',
-                'month' => '(0?[1-9])|(1[0-2])',
-                'filename' => '[-a-zA-Z]+', 
-                'ext' => 'png|jpg|jpeg|ppm',
-            ]
-        )]
+        #
             public function test2Action(int $year, int $month, string $filename, string $ext): Response
             {
                 $args = array(
@@ -83,6 +74,36 @@ class RouteController extends AbstractController
     
                 return $this->render('Sandbox/Route/test1.html.twig', $args);
             }
+
+        #[Route(
+            '/test3/{year}/{month}/{filename}.{ext}',
+            name: '_test3', 
+            requirements: [
+                'year' => '[1-9]\d{0,3}',
+                'month' => '(0?[1-9])|(1[0-2])',
+                'filename' => '[-a-zA-Z]+', 
+                'ext' => 'png|jpg|jpeg|ppm',
+            ],
+            defaults: [
+                'year' => 2021,
+                'month' => 01,
+                'filename' => 'img',
+                'ext' => 'jpg',
+            ]
+        )]
+        public function test3Action(int $year, int $month, string $filename, string $ext): Response{
+
+            $args = array(
+                'title' => 'Test3',
+                'year' => $year,
+                'month' => $month,
+                'filename' => $filename,
+                'ext' => $ext, 
+            );
+            
+
+            return $this->render('Sandbox/Route/test1.html.twig', $args);
+        }
 
 
 }
