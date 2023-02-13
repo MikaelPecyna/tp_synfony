@@ -55,5 +55,25 @@ class InjectionController extends AbstractController
         return new Response('<body>Injection::deux</body>');
     }
 
+    #[Route(
+        '/create-flash', 
+        name: '_create_flash',
+    )]
+    public function createFlashAction(Session $session): Response
+    {
+        $session->getFlashBag()->add('info', 'La base de donnée à été mis à jour');
+        $this->addFlash('info', 'La base de donnée à été mis à jour (bisRepeta)');
+        $this->addFlash('error', 'Erreur lors de la suppression');
+        return $this->redirectToRoute('app_sandbox_injection_display_flash');
+    }
+
+    #[Route(
+        "/display-flash",
+        name: '_display_flash',
+    )]
+    public function displayFlashAction(): Response
+    {
+        return $this->render('Sandbox/Injection/displayFlash.html.twig');
+    }
 
 }
