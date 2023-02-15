@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 
+
 #[Route('/produit', name: 'app_produit')]
 class ProduitController extends AbstractController
 {
