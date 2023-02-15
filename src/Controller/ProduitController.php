@@ -81,7 +81,7 @@ class ProduitController extends AbstractController
 
     #[Route(
         '/delete/{id}',
-        name: '_edit',
+        name: '_delete',
         requirements: ['id' => '[1-9]\d*'],
     )]
     public function deleteAction(int $id): Response 
