@@ -90,4 +90,23 @@ class ProduitController extends AbstractController
         return $this->redirectToRoute('app_produit_list');
     }
 
+    #[Route(
+        '/pays/add',
+        name : '_pays_add',
+    )]
+    public function paysAddAction(): Response 
+    {
+        $this->addFlash('info', 'Ajout de la relation Produit/Pays fait !');
+        return $this->redirectToRoute('app_produit_list');
+    }
+
+    #[Route(
+        '/magasin/add',
+        name : '_magasin_add',
+    )]
+    public function magasinAddAction(): Response 
+    {
+        $this->addFlash('info', 'Ajout de la relation Produit/Magasin fait !');
+        return $this->redirectToRoute('app_produit_list');
+    }
 }
