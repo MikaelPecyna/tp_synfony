@@ -1,0 +1,32 @@
+<style> 
+table, th, td {
+  border: 1px solid;
+}
+</style>
+
+
+<body>
+    <table> 
+        {% for produit in produits %}
+        <tr>
+            <td> {{ produit.nom }} </td>
+            <td> {{ produit.prix }} </td>
+            <td> {{ produit.quantité }} </td>
+            <td> {{ produit.prix * produit.quantité }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% set totalValueStock = 0 %}
+{% set totalNumberStock = 0 %}
+
+{% for produit in produits %}
+   
+       {% set totalValueStock = totalValueStock + (produit.prix * produit.quantité) %}  
+       {% set totalNumberStock = totalNumberStock + produit.quantité %}  
+{% endfor %}
+
+    <p> Valeurs total des produits: {{ totalValueStock }} </p>
+    <p> Nombre de produit: {{ totalNumberStock }} </p>
+</body>
