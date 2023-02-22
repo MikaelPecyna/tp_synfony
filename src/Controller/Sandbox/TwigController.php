@@ -3,17 +3,19 @@
 namespace App\Controller\Sandbox;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+#[Route('/sandbox/twig', name: 'app_sandbox_twig')]
 class TwigController extends AbstractController
 {
-    #[Route('/sandbox/twig', name: 'app_sandbox_twig')]
-    public function index(): JsonResponse
+    #[Route(
+        '/vue1', 
+        name : '_vue1'
+    )]
+    public function index(): Response
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/Sandbox/TwigController.php',
-        ]);
+        return $this->render('Sandbox/Twig/vue1.html.twig');
     }
 }

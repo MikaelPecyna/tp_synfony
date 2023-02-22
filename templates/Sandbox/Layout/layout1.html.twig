@@ -1,14 +1,14 @@
-{# contrôleur racine (niveau 1) pour TwigController #}
+{# template racine (niveau 1) pour TwigController #}
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% title %}</title>
+        <title>{% block title %}Sandbox{% endblock %}</title>
     </head>
     <body>
         <div id="vue">
-            <h1>{% title %}</h1>
-            {# ici le bloc vue #}
+            <h1>{% block titre_principale %}{% endblock %}</h1>
+            {% block vue %}{% endblock %}
         </div>
     </body>
 </html>
