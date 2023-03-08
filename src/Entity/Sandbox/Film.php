@@ -5,6 +5,7 @@ namespace App\Entity\Sandbox;
 use App\Repository\Sandbox\FilmRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Table(name: 'sb_films')]
 #[ORM\Entity(repositoryClass: FilmRepository::class)]
 class Film
 {
@@ -16,10 +17,10 @@ class Film
     #[ORM\Column(length: 200)]
     private ?string $titre = null;
 
-    #[ORM\Column]
+    #[ORM\Column(options : ["comment" => "Année de sortie du film"])]
     private ?int $annee = null;
 
-    #[ORM\Column]
+    #[ORM\Column(options: ['default' => true])  ]
     private ?bool $enstock = null;
 
     #[ORM\Column]
@@ -27,6 +28,16 @@ class Film
 
     #[ORM\Column(nullable: true)]
     private ?int $quantite = null;
+
+
+    
+
+    public function __construct()
+    {
+        $this->enstock = true;
+        $this->quantite = null;
+    }
+
 
     public function getId(): ?int
     {
