@@ -14,6 +14,8 @@ class OverviewController extends AbstractController
         return new Response('<body>Hello World!</body>');
     }
 
+    
+
     #[Route('/sandbox/overview/hello2', name: 'sandbox_overview_hello2')]
     public function hello2Action(): Response
     {
@@ -29,7 +31,7 @@ public function hello3Action(): Response
         );
         return $this->render('Sandbox/overview/hello3.html.twig', $args);
 
-    }
+    } 
 
     #[Route('/sandbox/overview/hello4', name: 'sandbox_overview_hello4')]
     public function hello4Action(): Response
@@ -38,7 +40,7 @@ public function hello3Action(): Response
             'prenom' => 'Mikael',
             'jeux' => ['A Plague Tale : Innocence', 'WoW', "Mass Effect", 'Life is Strange'],
         );
-        return $this->render('Sandbox/overview/hello4.html.twig', $args);
+        return $this->render    ('Sandbox/overview/hello4.html.twig', $args);
 
     }
 
