@@ -1,0 +1,22 @@
+{# template racine (niveau 1) pour TwigController : version 2 #}
+<html>
+    <head> 
+        <meta charset="utf-8">
+        {% block title %}Sandbox{% endblock %}
+    </head>
+
+    <body>
+        <div id="vue">
+
+            <h1> {% block titre_principale %} {% endblock %} </h1>
+
+            {% block vue %} {% endblock %}
+        </div>
+
+        <div id="footer">
+            {%  include "Sandbox/Twig/footer.html.twig" %} 
+        </div>
+    
+    </body>
+
+</html>
