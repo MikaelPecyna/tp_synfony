@@ -47,5 +47,26 @@ class TwigController extends AbstractController
         return $this->render('Sandbox/Twig/vue4.html.twig');
     }
 
+    public function palmaresAction(int $n): Response
+    {
+        
+        $products = [];
+
+        for ($i=1; $i <= $n; $i++) 
+        {
+            $products[] = ['nom' => 'Produit ['.$i.']' , 'prix' => 1000-$i];
+        }
+        return $this->render('Sandbox/Layout/palmares.html.twig', ['produits' => $products]);
+    }
+
+    #[Route(
+        '/vue5',
+        name: '_vue5'
+    )]
+    public function vue5Action(): Response 
+    {
+        return $this->render('Sandbox/Twig/vue5.html.twig');
+    }
+
     
 }
